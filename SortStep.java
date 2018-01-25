@@ -64,20 +64,20 @@ public class SortStep{
             case '4':
               resetArray();
               int last = myArray.size() - 1;
-              //mySorts.mergeSort(myArray, 0, last);
+              mySorts.mergeSort(myArray, 0, last);
               break;
             case '5':
-        	  listType = "Integer";
+              listType = "Integer";
               break;              
         }
 
         if ('1' <= choice.charAt(0) && choice.charAt(0) <= '4'){
-        	System.out.println();
-        	System.out.println("Array sorted to:");
-	        screenOutput();
-	        System.out.println();
-	        System.out.println("# steps = " + mySorts.getStepCount());
-	        System.out.println();
+            System.out.println();
+            System.out.println("Array sorted to:");
+            screenOutput();
+            System.out.println();
+            System.out.println("# steps = " + mySorts.getStepCount());
+            System.out.println();
         }
       }
     } while (choice.charAt(0) != 'Q' && choice.charAt(0) != 'q');
@@ -112,7 +112,7 @@ public class SortStep{
    */
   private void resetArray(){
     if (myArray == null || listType.equals("Integer")){
-    	fillArrayWithInts();
+        fillArrayWithInts();
     }
 
     System.out.println();
