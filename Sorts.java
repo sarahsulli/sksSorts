@@ -23,7 +23,7 @@ public class Sorts{
         System.out.println();
         System.out.println("Bubble Sort");
         System.out.println();
-        
+
         for (int outer = 0; outer < list.size() - 1; outer++){
             for (int inner = 0; inner < list.size()-outer-1; inner++){
                 steps += 3;
@@ -36,7 +36,7 @@ public class Sorts{
                 }
             }
         }
-        
+
     }
 
     /**
@@ -137,6 +137,7 @@ public class Sorts{
                 steps++;
             }
         }
+
         int m = low;
         // Copy the merged part back into the original list from low to high index
         for(int l = 0; l < helper.size(); l++) {
@@ -144,6 +145,18 @@ public class Sorts{
             m++;
             steps++;
         }
+    }
+    
+    public static boolean sequentialSort(ArrayList <Integer> list, int searchNum)
+    {
+        for(int i=0; i<list.size(); i++)
+        {
+            if (list.get(i) == searchNum)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
     /**
