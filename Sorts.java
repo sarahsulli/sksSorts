@@ -1,5 +1,6 @@
 
 import java.util.*;
+import java.util.Collections;
 
 public class Sorts{
     private int steps;
@@ -120,21 +121,21 @@ public class Sorts{
             if (i > middle) {
                 helper.add(list.get(j));
                 j++;
-                steps++;
+                //steps++;
             }
             else if (j > high){
                 helper.add(list.get(i));
                 i++;
-                steps++;
+                //steps++;
             }
             else if (list.get(i) <= list.get(j)) {
                 helper.add(list.get(i));
                 i++;
-                steps++;
+                //steps++;
             } else {
                 helper.add(list.get(j));
                 j++;
-                steps++;
+                //steps++;
             }
         }
 
@@ -143,20 +144,73 @@ public class Sorts{
         for(int l = 0; l < helper.size(); l++) {
             list.set(m, helper.get(l));
             m++;
-            steps++;
+            //steps++;
         }
     }
     
-    public static boolean sequentialSort(ArrayList <Integer> list, int searchNum)
+
+    public int sequentialSort(ArrayList <Integer> list, int searchNum)
     {
-        for(int i=0; i<list.size(); i++)
+        for(int i = 0; i < list.size(); i++)
         {
-            if (list.get(i) == searchNum)
+            steps++;
+            if(list.get(i) == searchNum)
             {
-                return true;
+                return i;
             }
         }
-        return false;
+        return -1;
+    }
+    //int first = 0;
+    //int last = 0;
+    public int binarySearch(ArrayList <Integer> list, int searchNum)
+    {
+        int low = 0;
+        int high = list.size() - 1;
+        int mid = (low + high) / 2;
+
+        while (low <= high && !list.get(mid).equals(searchNum)) {
+
+            if (list.get(mid).compareTo(searchNum) < 0) {
+                low = mid + 1;
+            } else {
+                high = mid - 1;
+            }
+
+            mid = (low + high) / 2;
+
+            if (low > high) {
+                mid = -1;
+            }
+
+        }
+        return mid;
+
+        /**int middle = (first + last) / 2;
+        steps++;
+        if(last < first)
+        {
+            return -1;
+        }
+        else{
+            steps+=2;
+            if(list.get(middle) > searchNum)
+            {
+                last = middle - 1;
+                return binarySearch(list , searchNum);
+            }
+            else if(list.get(middle) < searchNum)
+            {
+                first = middle + 1;
+                return binarySearch(list, searchNum);
+            }
+            else
+            {
+                return middle;
+            }
+        }
+        //int index = Collections.binarySearch(list, searchNum);
+        //return index;*/
     }
 
     /**

@@ -31,82 +31,91 @@ public class SortStep{
         String print;
 
         do{
-            System.out.println();
-            System.out.println("Sorting algorithm menu");
-            System.out.println();
-            System.out.println("(1) Bubble sort");
-            System.out.println("(2) Selection sort");
-            System.out.println("(3) Insertion sort");
-            System.out.println("(4) Recursive mergesort");
-            System.out.println("(5) Fill with Integers");
-            System.out.println("(6) Sequential Search");   
-            System.out.println("(7) Binary Search");         
-            System.out.println("(Q) Quit");
-            System.out.println();
-            System.out.print("Choice ---> ");
-            choice = console.next() + " ";
-            if ('1' <= choice.charAt(0) && choice.charAt(0) <= '8'){
-                System.out.println();
+      System.out.println();
+      System.out.println("Sorting algorithm menu");
+      System.out.println();
+      System.out.println("(1) Bubble sort");
+      System.out.println("(2) Selection sort");
+      System.out.println("(3) Insertion sort");
+      System.out.println("(4) Recursive mergesort");
+      System.out.println("(5) Sequential search");
+      System.out.println("(6) Binary search");
+      System.out.println("(7) Fill with Integers");
+      System.out.println("(Q) Quit");
+      System.out.println();
+      System.out.print("Choice ---> ");
+      choice = console.next() + " ";
+      if ('1' <= choice.charAt(0) && choice.charAt(0) <= '7'){
+        System.out.println();
 
-                mySorts.setStepCount(0);
-                switch (choice.charAt(0)){
-                    case '1':
-                        resetArray();
-                        mySorts.bubbleSort(myArray);
-                        break;
-                    case '2':
-                        resetArray();
-                        mySorts.selectionSort(myArray);
-                        break;
-                    case '3':
-                        resetArray();
-                        mySorts.insertionSort(myArray);
-                        break;
-                    case '4':
-                        resetArray();
-                        int last = myArray.size() - 1;
-                        mySorts.mergeSort(myArray, 0, last);
-                        break;
-                    case '5':
-                        resetArray();
-                        listType = "Integer";
-                        break;       
-                    case '6':
-                        resetArray();
-                        System.out.print("What number do you want to search for?");
-                        System.out.println();
-                        int searchNum = console.nextInt();
-                        mySorts.sequentialSort(myArray, searchNum);  
-                        if(mySorts.sequentialSort > -1)
-                        {
-                            System.out.println("that number IS found");
-                        } else {
-                            System.out.println("that number is NOT found");                    
-                        }
-                        break;                
-                    case '7':
-                        break;                
-                }
+        mySorts.setStepCount(0);
+        switch (choice.charAt(0)){
+            case '1':
+              resetArray();
+              mySorts.bubbleSort(myArray);
+              break;
+            case '2':
+              resetArray();
+              mySorts.selectionSort(myArray);
+              break;
+            case '3':
+              resetArray();
+              mySorts.insertionSort(myArray);
+              break;
+            case '4':
+              resetArray();
+              int last = myArray.size() - 1;
+              mySorts.mergeSort(myArray, 0, last);
+              break;
+            case '5':
+              resetArray();
+              //int last2 = myArray.size() - 1;
+              //mySorts.mergeSort(myArray, 0, last2);
+              break;
+            case '6':
+              resetArray();
+              int last3 = myArray.size() - 1;
+              mySorts.mergeSort(myArray, 0, last3);
+              break;
+            case '7':
+              listType = "Integer";
+              break;              
+        }
 
-                if ('1' <= choice.charAt(0) && choice.charAt(0) <= '4'){
-                    System.out.println();
-                    System.out.println("Array sorted to:");
-                    screenOutput();
-                    System.out.println();
-                    System.out.println("# steps = " + mySorts.getStepCount());
-                    System.out.println();
-                }
-
-                if ('6' <= choice.charAt(6) && choice.charAt(0) <= '7'){
-                    System.out.println();
-                    System.out.println("# steps = " + mySorts.getStepCount());
-                    System.out.println();
-                    /**System.out.print("What number do you want to search for?");
-                    int searchNum = console.nextInt(); */
-                }                
-            }
-        } while (choice.charAt(0) != 'Q' && choice.charAt(0) != 'q');
-    }
+        if ('1' <= choice.charAt(0) && choice.charAt(0) <= '6'){
+            System.out.println();
+            System.out.println("Array sorted to:");
+            screenOutput();
+            System.out.println();
+            System.out.println("# steps = " + mySorts.getStepCount());
+            System.out.println();
+        }
+        if('5' == choice.charAt(0)){
+            System.out.println();
+            System.out.println("Number to search for:");
+            System.out.println();
+            int searchNum = console.nextInt();
+            System.out.println();
+            System.out.println("Found at index: " + mySorts.sequentialSort(myArray , searchNum));
+            System.out.println();
+            System.out.println("# steps = " + mySorts.getStepCount());
+            System.out.println();
+        }
+        if('6' == choice.charAt(0)){
+            System.out.println();
+            System.out.println("Number to search for:");
+            System.out.println();
+            int searchNum = console.nextInt();
+            System.out.println();
+            
+            System.out.println("Found at index: " + mySorts.binarySearch(myArray , searchNum));
+            System.out.println();
+            System.out.println("# steps = " + mySorts.getStepCount());
+            System.out.println();
+        }
+      }
+    } while (choice.charAt(0) != 'Q' && choice.charAt(0) != 'q');
+  }
 
     /**
      *  Initializes myArray with random integers in the range
