@@ -159,13 +159,13 @@ public class SortStep{
      *  prints out the contents of the array in tabular form, 12 columns
      */
     private void screenOutput(){
-        for (int loop = 0; loop < myArray.size(); loop++){
+        /**for (int loop = 0; loop < myArray.size(); loop++){
             if (loop % 12 == 0){
                 System.out.println();
             }
             System.out.print(myArray.get(loop) + "  ");
         }
-        System.out.println();
+        System.out.println();*/
     }
 
 }
